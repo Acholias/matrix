@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 11:19:54 by lumugot           #+#    #+#             */
-/*   Updated: 2026/07/19 13:48:16 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/07/19 14:43:21 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,14 @@ void		ex00(void);
 t_vector	*linear_combination(t_vector **u, float *coefs, size_t len);
 void		ex01(void);
 
-//ex02
+//ex02.c
 float		lerp_float(float u, float v, float t);
 t_vector	*lerp_vec(t_vector *u, t_vector *v, float t);
 t_matrix	*lerp_mat(t_matrix *u, t_matrix *v, float t);
 void		ex02(void);
+
+//ex03.c
+float		dot(t_vector *u, t_vector *v);
+void		ex03(void);
 
 #endif

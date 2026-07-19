@@ -6,7 +6,7 @@
 #    By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/19 11:09:11 by lumugot           #+#    #+#              #
-#    Updated: 2026/07/19 13:56:59 by lumugot          ###   ########.fr        #
+#    Updated: 2026/07/19 15:01:45 by lumugot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRC		= srcs/main.c \
 			srcs/matrix.c \
 			srcs/exercises/ex00.c \
 			srcs/exercises/ex01.c \
-			srcs/exercises/ex02.c
+			srcs/exercises/ex02.c \
+			srcs/exercises/ex03.c
 
 OBJ			= $(SRC:.c=.o)
 
