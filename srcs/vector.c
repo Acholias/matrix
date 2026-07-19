@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 10:37:26 by lumugot           #+#    #+#             */
-/*   Updated: 2026/07/19 10:48:39 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/07/19 11:50:55 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_vector	*new_vec(size_t size)
 		free(vector);
 		return (NULL);
 	}
-	memset(vector, 0, sizeof(&vector));
+	memset(vector->data, 0, sizeof(float) * size);
 	vector->size = size;
 	return (vector);
 }

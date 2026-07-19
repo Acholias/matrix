@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector.h                                           :+:      :+:    :+:   */
+/*   exercises.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/19 10:35:20 by lumugot           #+#    #+#             */
-/*   Updated: 2026/07/19 11:45:24 by lumugot          ###   ########.fr       */
+/*   Created: 2026/07/19 11:19:54 by lumugot           #+#    #+#             */
+/*   Updated: 2026/07/19 11:44:54 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VECTOR_H
-# define VECTOR_H
+#ifndef EXERCISES_H
+# define EXERCISES_H
 
-# include <stddef.h>
+# include "vector.h"
+# include "matrix.h"
+# include <stdio.h>
 
-typedef struct s_vector
-{
-	float	*data;
-	size_t	size;
-}	t_vector;
+// ex00.c
+void	vec_add(t_vector *u, const t_vector *v);
+void	vec_sub(t_vector *u, const t_vector *v);
+void	vec_scl(t_vector *u, float a);
 
-t_vector	*new_vec(size_t size);
-t_vector	*from_vec(float *data, size_t size);
-void		free_vec(t_vector *vector);
+void	mat_add(t_matrix *u, const t_matrix *v);
+void	mat_sub(t_matrix *u, const t_matrix *v);
+void	mat_scl(t_matrix *u, float a);
+void	ex00(void);
 
-void		print_vec(const t_vector *vector);
 
 #endif

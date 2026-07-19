@@ -6,7 +6,7 @@
 #    By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/19 11:09:11 by lumugot           #+#    #+#              #
-#    Updated: 2026/07/19 11:11:04 by lumugot          ###   ########.fr        #
+#    Updated: 2026/07/19 11:48:26 by lumugot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,9 @@ $(NAME): $(OBJ)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
+
+run: all
+	./matrix
 
 clean:
 	@rm -f $(OBJ)
