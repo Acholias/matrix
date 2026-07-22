@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 11:19:54 by lumugot           #+#    #+#             */
-/*   Updated: 2026/07/20 21:26:16 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/07/22 19:44:45 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,19 @@ void		ex02(void);
 //ex03.c
 float		dot(t_vector *u, t_vector *v);
 void		ex03(void);
+
+//ex04.c
+float		norm_1(t_vector *vector);
+float		norm(t_vector *vector);
+float		norm_inf(t_vector	*vector);
+void		ex04(void);
+
+//ex05.c
+ float		angle_cos(t_vector *u, t_vector *v);
+void		ex05(void);
+
+//ex06.c
+t_vector	*cross_product(t_vector *u, t_vector *v);
+void		ex06(void);
 
 #endif

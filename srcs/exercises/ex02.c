@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 13:46:36 by lumugot           #+#    #+#             */
-/*   Updated: 2026/07/19 13:56:38 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/07/22 19:39:22 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,11 @@ void	ex02()
 {
 	printf("=== Exercise 02 - Linear Interpolation ===\n\n");
 
-    // Scalaires
 	printf("lerp(0, 1, 0)   = %g\n",    lerp_float(0., 1., 0.));
 	printf("lerp(0, 1, 1)   = %g\n",    lerp_float(0., 1., 1.));
 	printf("lerp(0, 1, 0.5) = %g\n",    lerp_float(0., 1., 0.5));
 	printf("lerp(21, 42, 0.3) = %g\n",  lerp_float(21., 42., 0.3));
 
-	// Vecteurs
 	t_vector *u = from_vec((float[]){2., 1.}, 2);
 	t_vector *v = from_vec((float[]){4., 2.}, 2);
 	printf("\nlerp(v=[2,1], v=[4,2], t=0.3):\n");
@@ -80,7 +78,6 @@ void	ex02()
 	free_vec(v);
 	free_vec(res_vec);
 
-	// Matrices
 	float row_u1[] = {2., 1.};
 	float row_u2[] = {3., 4.};
 	float *rows_u[] = {row_u1, row_u2};
