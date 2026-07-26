@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 11:19:54 by lumugot           #+#    #+#             */
-/*   Updated: 2026/07/26 14:59:39 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/07/26 16:01:57 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include "matrix.h"
 # include <stdio.h>
 # include <math.h>
+
+# define EPSILON	1e-6
 
 // ex00.c
 void		vec_add(t_vector *u, const t_vector *v);
@@ -67,5 +69,9 @@ void		ex08(void);
 //ex09.c
 t_matrix	*transpose(t_matrix *matrix);
 void		ex09(void);
+
+//ex10.c
+t_matrix	*row_echelon(t_matrix *matrix);
+void		ex10(void);
 
 #endif
