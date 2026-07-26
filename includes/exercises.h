@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 11:19:54 by lumugot           #+#    #+#             */
-/*   Updated: 2026/07/26 14:51:59 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/07/26 14:59:39 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,9 @@ void		ex07(void);
 //ex08.c
 float		trace(t_matrix *matrix);
 void		ex08(void);
+
+//ex09.c
+t_matrix	*transpose(t_matrix *matrix);
+void		ex09(void);
 
 #endif
