@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 11:19:54 by lumugot           #+#    #+#             */
-/*   Updated: 2026/07/22 19:44:45 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/07/26 14:47:14 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,10 @@ void		ex05(void);
 //ex06.c
 t_vector	*cross_product(t_vector *u, t_vector *v);
 void		ex06(void);
+
+//ex07.c
+t_vector	*mul_vec(t_matrix *m, t_vector *v);
+t_matrix	*mul_mat(t_matrix *m, t_matrix *n);
+void		ex07(void);
 
 #endif
