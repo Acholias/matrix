@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 11:19:54 by lumugot           #+#    #+#             */
-/*   Updated: 2026/07/26 16:01:57 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/07/30 19:46:10 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "vector.h"
 # include "matrix.h"
+# include "display.h"
+# include "utils.h"
 # include <stdio.h>
 # include <math.h>
 
