@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 22:44:37 by lumugot           #+#    #+#             */
-/*   Updated: 2026/08/02 23:46:27 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/03 00:12:23 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,8 +150,11 @@ t_cli	*parse_args(int argc, char **argv)
 		{
 			printf(RED "Erreur" RESET " : format invalide pour '%s'\n", argv[index + 2]);
 			printf(GREY "Format attendu : \"1,2;3,4\"\n" RESET);
-			while (index-- < 0)
+			while (index > 0)
+			{
+				index--;
 				free_mat(cli->mats[index]);
+			}
 			free(cli->mats);
 			free(cli);
 			return (NULL);
