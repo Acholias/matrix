@@ -6,7 +6,7 @@
 #    By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/19 11:09:11 by lumugot           #+#    #+#              #
-#    Updated: 2026/07/26 15:20:53 by lumugot          ###   ########.fr        #
+#    Updated: 2026/08/02 23:42:54 by lumugot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,9 @@ CFLAGS	= -Wall -Wextra -Werror -g
 SRC		= srcs/main.c \
 			srcs/vector.c \
 			srcs/matrix.c \
+			srcs/cli.c \
+			srcs/display.c \
+			srcs/utils.c \
 			srcs/exercises/ex00.c \
 			srcs/exercises/ex01.c \
 			srcs/exercises/ex02.c \
@@ -29,7 +32,6 @@ SRC		= srcs/main.c \
 			srcs/exercises/ex07.c \
 			srcs/exercises/ex08.c \
 			srcs/exercises/ex09.c \
-			srcs/exercises/ex10.c
 
 OBJ			= $(SRC:.c=.o)
 

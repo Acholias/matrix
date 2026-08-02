@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 11:19:54 by lumugot           #+#    #+#             */
-/*   Updated: 2026/07/30 19:46:10 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/02 23:35:27 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "matrix.h"
 # include "display.h"
 # include "utils.h"
+# include "cli.h"
 # include <stdio.h>
 # include <math.h>
 
@@ -29,7 +30,7 @@ void		vec_scl(t_vector *u, float a);
 void		mat_add(t_matrix *u, const t_matrix *v);
 void		mat_sub(t_matrix *u, const t_matrix *v);
 void		mat_scl(t_matrix *u, float a);
-void		ex00(void);
+void		ex00(t_cli *cli);
 
 //ex01.c
 t_vector	*linear_combination(t_vector **u, float *coefs, size_t len);
