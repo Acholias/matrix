@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 11:19:54 by lumugot           #+#    #+#             */
-/*   Updated: 2026/08/03 12:11:29 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/03 12:19:52 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,10 @@ t_matrix	*transpose(t_matrix *matrix);
 void		ex09(t_cli *cli);
 
 //ex10.c
+//
+void		swap_rows(t_matrix *matrix, size_t a, size_t b);
+void		normalize_row(t_matrix *matrix, size_t row, float p);
+void		eliminate(t_matrix *matrix, size_t p_row, size_t col);
 t_matrix	*row_echelon(t_matrix *matrix);
 void		ex10(t_cli *cli);
 

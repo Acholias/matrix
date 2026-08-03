@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 11:08:25 by lumugot           #+#    #+#             */
-/*   Updated: 2026/08/03 12:03:37 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/03 12:47:07 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	run_exercises(t_cli *cli)
 		case EX08: ex08(cli); break ;
 		case EX09: ex09(cli); break ;
 		case EX10: ex10(cli); break ;
-		// case EX11: ex11(cli); break ;
+		case EX11: ex11(cli); break ;
 		// case EX12: ex12(cli); break ;
 		// case EX13: ex13(cli); break ;
 		// 

@@ -6,14 +6,14 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 15:21:29 by lumugot           #+#    #+#             */
-/*   Updated: 2026/08/03 12:08:48 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/03 12:19:54 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/exercises.h"
 
 // Swap deux lignes d'une matrice
-static void	swap_rows(t_matrix *matrix, size_t a, size_t b)
+void	swap_rows(t_matrix *matrix, size_t a, size_t b)
 {
 	float	*temp;
 
@@ -23,7 +23,7 @@ static void	swap_rows(t_matrix *matrix, size_t a, size_t b)
 }
 
 // Normalize une ligne en divisant chaque élément par le pivot (après l'opération le pivot = 1)
-static void	normalize_row(t_matrix *matrix, size_t row, float p)
+void	normalize_row(t_matrix *matrix, size_t row, float p)
 {
 	size_t	index;
 
@@ -35,7 +35,7 @@ static void	normalize_row(t_matrix *matrix, size_t row, float p)
 	}
 }
 
-static void	eliminate(t_matrix *matrix, size_t p_row, size_t col)
+void	eliminate(t_matrix *matrix, size_t p_row, size_t col)
 {
 	float	f;
 	size_t	i;
