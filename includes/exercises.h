@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 11:19:54 by lumugot           #+#    #+#             */
-/*   Updated: 2026/08/03 10:20:59 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/03 12:11:29 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,9 @@ void		ex09(t_cli *cli);
 //ex10.c
 t_matrix	*row_echelon(t_matrix *matrix);
 void		ex10(t_cli *cli);
+
+//ex11.c
+float		determinant(t_matrix *matrix);
+void		ex11(t_cli *cli);
 
 #endif
