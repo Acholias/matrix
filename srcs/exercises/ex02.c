@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 13:46:36 by lumugot           #+#    #+#             */
-/*   Updated: 2026/08/03 10:45:17 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/03 11:06:15 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,8 @@ void	ex02(t_cli *cli)
 	u = mat_to_vec(cli->mats[0]);
 	v = mat_to_vec(cli->mats[1]);
 	result = lerp_vec(u, v, t);
-	printf(GREY "u  " RESET); display_vec(u);
-	printf(GREY "v  " RESET); display_vec(v);
+	display_vec_label(GREY "u  " RESET, u);
+	display_vec_label(GREY "v  " RESET, v);
 	printf(GREY "t = %g\n=\n" RESET, t);
 	display_vec(result);
 	free_vec(u);

@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 13:36:32 by lumugot           #+#    #+#             */
-/*   Updated: 2026/08/03 10:55:58 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/03 11:15:15 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,25 @@ void	ex07(t_cli *cli)
 		printf(GREY "Usage : ./matrix ex07 \"1,0;0,1\" \"2,1;4,2\"\n" RESET);
 		return ;
 	}
+	if (cli->mats[1]->rows == 1)
+	{
+		t_vector    *v = mat_to_vec(cli->mats[1]);
+		if (cli->mats[0]->cols != v->size)
+		{
+			printf(RED "Erreur" RESET " : colonnes de A doivent égaler la taille du vecteur\n");
+			free_vec(v);
+			return ;
+		}
+		t_vector    *res_v = mul_vec(cli->mats[0], v);
+		display_mat(cli->mats[0]);
+		printf(GREY "×\n" RESET);
+		display_vec(v);
+		printf(GREY "=\n" RESET);
+		display_vec(res_v);
+		free_vec(v);
+		free_vec(res_v);
+		return ;
+	}	
 	if (cli->mats[0]->cols != cli->mats[1]->rows)
 	{
 		printf(RED "Erreur" RESET " : colonnes de A doivent égaler lignes de B\n");

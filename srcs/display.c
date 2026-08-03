@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 20:09:34 by lumugot           #+#    #+#             */
-/*   Updated: 2026/08/03 10:53:03 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/03 11:09:32 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -298,4 +298,59 @@ void	display_mat_scl(t_matrix *u, float scalar, t_matrix *result)
 	}
 	free(wu);
 	free(wr);
+}
+
+static size_t	visible_len(const char *str)
+{
+	size_t	len;
+	size_t	i;
+
+	len = 0;
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '\033')
+		{
+			while (str[i] && str[i] != 'm')
+				i++;
+		}
+		else
+			len++;
+		i++;
+	}
+	return (len);
+}
+
+void	display_vec_label(char *label, t_vector *vector)
+{
+	t_matrix	*m;
+	int			*w;
+	size_t		pad;
+	size_t		index;
+
+	m = vec_to_mat(vector);
+	if (!m)
+		return ;
+	w = col_widths(m);
+	pad = visible_len(label);
+	index = 0;
+	while (index < m->rows)
+	{
+		if (index == 0)
+			printf("%s", label);
+		else
+		{
+			size_t	p = 0;
+			while (p < pad)
+			{
+				printf(" ");
+				p++;
+			}
+		}
+		print_row(m, index, w);
+		printf("\n");
+		index++;
+	}
+	free(w);
+	free_mat(m);
 }

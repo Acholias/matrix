@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 19:16:11 by lumugot           #+#    #+#             */
-/*   Updated: 2026/08/03 10:56:12 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/03 11:06:27 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	ex04(t_cli *cli)
 		return ;
 	}
 	u = mat_to_vec(cli->mats[0]);
-	printf(GREY "u        " RESET); display_vec(u);
+	display_vec_label(GREY "u        " RESET, u);
 	printf(GREY "norm_1   " RESET "= %g\n", norm_1(u));
 	printf(GREY "norm     " RESET "= %g\n", norm(u));
 	printf(GREY "norm_inf " RESET "= %g\n", norm_inf(u));

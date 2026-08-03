@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 17:14:02 by lumugot           #+#    #+#             */
-/*   Updated: 2026/08/03 10:39:14 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/03 11:04:05 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ void		display_vec_result(char *op, t_vector *u, t_vector *v, t_vector *result);
 void		display_mat_result(char *op, t_matrix *u, t_matrix *v, t_matrix *result);
 void		display_scalar_result(char *op, t_vector *u, t_vector *v, float result);
 void		display_mat_scl(t_matrix *u, float scalar, t_matrix *result);
+void		display_vec_label(char *label, t_vector *vector);
 
 #endif
