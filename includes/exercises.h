@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 11:19:54 by lumugot           #+#    #+#             */
-/*   Updated: 2026/08/02 23:35:27 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/03 10:20:59 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,47 +34,47 @@ void		ex00(t_cli *cli);
 
 //ex01.c
 t_vector	*linear_combination(t_vector **u, float *coefs, size_t len);
-void		ex01(void);
+void		ex01(t_cli *cli);
 
 //ex02.c
 float		lerp_float(float u, float v, float t);
 t_vector	*lerp_vec(t_vector *u, t_vector *v, float t);
 t_matrix	*lerp_mat(t_matrix *u, t_matrix *v, float t);
-void		ex02(void);
+void		ex02(t_cli *cli);
 
 //ex03.c
 float		dot(t_vector *u, t_vector *v);
-void		ex03(void);
+void		ex03(t_cli *cli);
 
 //ex04.c
 float		norm_1(t_vector *vector);
 float		norm(t_vector *vector);
 float		norm_inf(t_vector	*vector);
-void		ex04(void);
+void		ex04(t_cli *cli);
 
 //ex05.c
  float		angle_cos(t_vector *u, t_vector *v);
-void		ex05(void);
+void		ex05(t_cli *cli);
 
 //ex06.c
 t_vector	*cross_product(t_vector *u, t_vector *v);
-void		ex06(void);
+void		ex06(t_cli *cli);
 
 //ex07.c
 t_vector	*mul_vec(t_matrix *m, t_vector *v);
 t_matrix	*mul_mat(t_matrix *m, t_matrix *n);
-void		ex07(void);
+void		ex07(t_cli *cli);
 
 //ex08.c
 float		trace(t_matrix *matrix);
-void		ex08(void);
+void		ex08(t_cli *cli);
 
 //ex09.c
 t_matrix	*transpose(t_matrix *matrix);
-void		ex09(void);
+void		ex09(t_cli *cli);
 
 //ex10.c
 t_matrix	*row_echelon(t_matrix *matrix);
-void		ex10(void);
+void		ex10(t_cli *cli);
 
 #endif

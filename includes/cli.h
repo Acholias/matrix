@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 22:40:39 by lumugot           #+#    #+#             */
-/*   Updated: 2026/08/02 23:18:09 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/03 10:26:21 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ typedef	struct s_cli
 	t_exercise	ex;
 	t_matrix	**mats;
 	size_t		count;
+	float		*scalars;
+	size_t		count_scalar;
+	bool		has_scalar;
 }	t_cli;
 
 t_cli	*parse_args(int argc, char **argv);

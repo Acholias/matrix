@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/02 22:44:37 by lumugot           #+#    #+#             */
-/*   Updated: 2026/08/03 00:12:23 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/03 10:35:53 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,35 @@ static t_matrix	*parse_matrix(char *str)
 	return (mat);
 }
 
+static float	*parse_scalars(char *str, size_t *count)
+{
+	float	*scalars;
+	size_t	index;
+	char	*ptr;
+	char	*end;
+
+	*count = count_char(str, ',') + 1;
+	scalars = malloc(sizeof(float) * *count);
+	if (!scalars)
+		return (NULL);
+	ptr = str;
+	index = 0;
+	while (index < *count)
+	{
+		scalars[index] = strtof(ptr, &end);
+		if (ptr == end)
+		{
+			free(scalars);
+			return (NULL);
+		}
+		ptr = end;
+		if (*ptr == ',')
+			ptr++;
+		index++;
+	}
+	return (scalars);
+}
+
 t_cli	*parse_args(int argc, char **argv)
 {
 	t_cli		*cli;
@@ -142,9 +171,37 @@ t_cli	*parse_args(int argc, char **argv)
 		free(cli);
 		return (NULL);
 	}
+	cli->scalars = NULL;
+	cli->count_scalar = 0;
+	cli->has_scalar = false;
 	index = 0;
 	while (index < (int)cli->count)
 	{
+		if (strcmp(argv[index + 2], "-s") == 0)
+		{
+			if (argv[index + 3])
+			{
+				cli->scalars = parse_scalars(argv[index + 3], &cli->count_scalar);
+				if (!cli->scalars)
+				{
+					printf(RED "Erreur" RESET " : format invalide pour les scalaires '%s'\n", argv[index + 3]);
+					printf(GREY "Format attendu : -s 10,-2,0.5\n" RESET);
+					while (index > 0)
+					{
+						index--;
+						free_mat(cli->mats[index]);
+					}
+					free(cli->mats);
+					free(cli);
+					return (NULL);
+				}
+				cli->has_scalar = true;
+			}
+			else
+				printf(YELLOW "Warning" RESET " : -s sans valeur, ignoré\n");
+			cli->count = index;
+			break ;
+		}
 		cli->mats[index] = parse_matrix(argv[index + 2]);
 		if (!cli->mats[index])
 		{
@@ -168,6 +225,8 @@ void	free_cli(t_cli *cli)
 {
 	size_t	index;
 
+	if (!cli)
+		return ;
 	index = 0;
 	while (index < cli->count)
 	{
@@ -175,5 +234,7 @@ void	free_cli(t_cli *cli)
 		index++;
 	}
 	free(cli->mats);
+	if (cli->scalars)
+		free(cli->scalars);
 	free(cli);
 }

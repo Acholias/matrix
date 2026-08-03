@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 14:39:53 by lumugot           #+#    #+#             */
-/*   Updated: 2026/07/22 19:23:53 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/03 10:56:16 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,31 +27,30 @@ float	dot(t_vector *u, t_vector *v)
 	return (result);
 }
 
-void	ex03()
+void	ex03(t_cli *cli)
 {
-	printf("=== Exercise 03 - Dot Product ===\n\n");
+	t_vector	*u;
+	t_vector	*v;
+	float		result;
 
-	t_vector *u = from_vec((float[]){0., 0.}, 2);
-	t_vector *v = from_vec((float[]){1., 1.}, 2);
-	printf("u = "); print_vec(u);
-	printf("v = "); print_vec(v);
-	printf("u · v = %g\n", dot(u, v));
-	free_vec(u);
-	free_vec(v);
-
-	u = from_vec((float[]){1., 1.}, 2);
-	v = from_vec((float[]){1., 1.}, 2);
-	printf("\nu = "); print_vec(u);
-	printf("v = "); print_vec(v);
-	printf("u · v = %g\n", dot(u, v));
-	free_vec(u);
-	free_vec(v);
-
-	u = from_vec((float[]){-1., 6.}, 2);
-	v = from_vec((float[]){3., 2.}, 2);
-	printf("\nu = "); print_vec(u);
-	printf("v = "); print_vec(v);
-	printf("u · v = %g\n", dot(u, v));
+	exercise_header(EX03_LABEL, EX03_NAME);
+	if (cli->count < 2)
+	{
+		printf(RED "Erreur" RESET " : ex03 attend 2 vecteurs\n");
+		printf(GREY "Usage : ./matrix ex03 \"1,2,3\" \"4,5,6\"\n" RESET);
+		return ;
+	}
+	u = mat_to_vec(cli->mats[0]);
+	v = mat_to_vec(cli->mats[1]);
+	if (u->size != v->size)
+	{
+		printf(RED "Erreur" RESET " : les vecteurs doivent être de la même taille\n");
+		free_vec(u);
+		free_vec(v);
+		return ;
+	}
+	result = dot(u, v);
+	display_scalar_result("·", u, v, result);
 	free_vec(u);
 	free_vec(v);
 }

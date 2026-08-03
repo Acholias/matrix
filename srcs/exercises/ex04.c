@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 19:16:11 by lumugot           #+#    #+#             */
-/*   Updated: 2026/07/26 17:02:03 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/03 10:56:12 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,28 +60,21 @@ float	norm_inf(t_vector *vector)
 	return (result);
 }
 
-void	ex04(void)
+void	ex04(t_cli *cli)
 {
-	printf("=== Exercise 04 - Norm ===\n\n");
+	t_vector	*u;
 
-	t_vector *u = from_vec((float[]){0., 0., 0.}, 3);
-	printf("u = "); print_vec(u);
-	printf("norm_1   = %g\n", norm_1(u));
-	printf("norm     = %g\n", norm(u));
-	printf("norm_inf = %g\n", norm_inf(u));
-	free_vec(u);
-
-	u = from_vec((float[]){1., 2., 3.}, 3);
-	printf("\nu = "); print_vec(u);
-	printf("norm_1   = %g\n", norm_1(u));
-	printf("norm     = %g\n", norm(u));
-	printf("norm_inf = %g\n", norm_inf(u));
-	free_vec(u);
-
-	u = from_vec((float[]){-1., -2.}, 2);
-	printf("\nu = "); print_vec(u);
-	printf("norm_1   = %g\n", norm_1(u));
-	printf("norm     = %g\n", norm(u));
-	printf("norm_inf = %g\n", norm_inf(u));
+	exercise_header(EX04_LABEL, EX04_NAME);
+	if (cli->count < 1)
+	{
+		printf(RED "Erreur" RESET " : ex04 attend 1 vecteur\n");
+		printf(GREY "Usage : ./matrix ex04 \"1,2,3\"\n" RESET);
+		return ;
+	}
+	u = mat_to_vec(cli->mats[0]);
+	printf(GREY "u        " RESET); display_vec(u);
+	printf(GREY "norm_1   " RESET "= %g\n", norm_1(u));
+	printf(GREY "norm     " RESET "= %g\n", norm(u));
+	printf(GREY "norm_inf " RESET "= %g\n", norm_inf(u));
 	free_vec(u);
 }

@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 19:30:23 by lumugot           #+#    #+#             */
-/*   Updated: 2026/07/22 19:55:01 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/03 10:56:08 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,47 +24,30 @@ float	angle_cos(t_vector *u, t_vector *v)
 	return (r_dot / (norm_u * norm_v));
 }
 
-void	ex05(void)
+void	ex05(t_cli *cli)
 {
-	printf("=== Exercise 05 - Cos ===\n\n");
-	t_vector *u = from_vec((float[]){1., 0.}, 2);
-	t_vector *v = from_vec((float[]){1., 0.}, 2);
-	printf("u = "); print_vec(u);
-	printf("v = "); print_vec(v);
-	printf("cos = %g\n", angle_cos(u, v));
-	free_vec(u);
-	free_vec(v);
+	t_vector	*u;
+	t_vector	*v;
+	float		result;
 
-	u = from_vec((float[]){1., 0.}, 2);
-	v = from_vec((float[]){0., 1.}, 2);
-	printf("\nu = "); print_vec(u);
-	printf("v = "); print_vec(v);
-	printf("cos = %g\n", angle_cos(u, v));
-	free_vec(u);
-	free_vec(v);
-
-	u = from_vec((float[]){-1., 1.}, 2);
-	v = from_vec((float[]){1., -1.}, 2);
-	printf("\nu = "); print_vec(u);
-	printf("v = "); print_vec(v);
-	printf("cos = %g\n", angle_cos(u, v));
-	free_vec(u);
-	free_vec(v);
-
-	u = from_vec((float[]){2., 1.}, 2);
-	v = from_vec((float[]){4., 2.}, 2);
-	printf("\nu = "); print_vec(u);
-	printf("v = "); print_vec(v);
-	printf("cos = %g\n", angle_cos(u, v));
-	free_vec(u);
-	free_vec(v);
-
-	u = from_vec((float[]){1., 2., 3.}, 3);
-	v = from_vec((float[]){4., 5., 6.}, 3);
-	printf("\nu = "); print_vec(u);
-	printf("v = "); print_vec(v);
-	printf("cos = %g\n", angle_cos(u, v));
+	exercise_header(EX05_LABEL, EX05_NAME);
+	if (cli->count < 2)
+	{
+		printf(RED "Erreur" RESET " : ex05 attend 2 vecteurs\n");
+		printf(GREY "Usage : ./matrix ex05 \"1,0\" \"0,1\"\n" RESET);
+		return ;
+	}
+	u = mat_to_vec(cli->mats[0]);
+	v = mat_to_vec(cli->mats[1]);
+	if (u->size != v->size)
+	{
+		printf(RED "Erreur" RESET " : les vecteurs doivent être de la même taille\n");
+		free_vec(u);
+		free_vec(v);
+		return ;
+	}
+	result = angle_cos(u, v);
+	display_scalar_result("cos", u, v, result);
 	free_vec(u);
 	free_vec(v);
 }
-

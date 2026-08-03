@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 20:09:34 by lumugot           #+#    #+#             */
-/*   Updated: 2026/08/02 22:28:15 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/03 10:53:03 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static const char	*close_brace(size_t row, size_t total)
 		return ("⎥");
 }
 
-static t_matrix	*vec_to_mat(t_vector *vector)
+t_matrix	*vec_to_mat(t_vector *vector)
 {
 	t_matrix	*matrix;
 	size_t		index;
@@ -84,6 +84,38 @@ static t_matrix	*vec_to_mat(t_vector *vector)
 	return (matrix);
 }
 
+t_vector	*mat_to_vec(t_matrix *matrix)
+{
+	t_vector	*vector;
+	size_t		index;
+
+	if (matrix->rows == 1)
+	{
+		vector = new_vec(matrix->cols);
+		if (!vector)
+			return (NULL);
+		index = 0;
+		while (index < matrix->cols)
+		{
+			vector->data[index] = matrix->data[0][index];
+			index++;
+		}
+	}
+	else
+	{
+		vector = new_vec(matrix->rows);
+		if (!vector)
+			return (NULL);
+		index = 0;
+		while (index < matrix->rows)
+		{
+			vector->data[index] = matrix->data[index][0];
+			index++;
+		}
+	}
+	return (vector);
+}
+
 static void	print_row(t_matrix *matrix, size_t row, int *w)
 {
 	size_t	index;
@@ -91,7 +123,7 @@ static void	print_row(t_matrix *matrix, size_t row, int *w)
 	printf("%s", open_brace(row, matrix->rows));
 
 	index = 0;
-	while (index < matrix->rows)
+	while (index < matrix->cols)
 	{
 		printf(" %*g", w[index], matrix->data[row][index]);
 		index++;
@@ -180,7 +212,7 @@ void	display_vec_result(char *op, t_vector *u, t_vector *v, t_vector *result)
 	mu = vec_to_mat(u);
 	mv = vec_to_mat(v);
 	mr = vec_to_mat(result);
-	if (!mu || !mv || mr)
+	if (!mu || !mv || !mr)
 	{
 		free_mat(mu);
 		free_mat(mv);
@@ -235,4 +267,35 @@ void	display_scalar_result(char *op, t_vector *u, t_vector *v, float result)
 	free(wv);
 	free_mat(mu);
 	free_mat(mv);
+}
+
+void	display_mat_scl(t_matrix *u, float scalar, t_matrix *result)
+{
+	int		*wu;
+	int		*wr;
+	size_t	index;
+	size_t	m;
+	char	buf[32];
+
+	wu = col_widths(u);
+	wr = col_widths(result);
+	if (!wu || !wr)
+	{
+		free(wu);
+		free(wr);
+		return ;
+	}
+	snprintf(buf, sizeof(buf), "* %g = ", scalar);
+	m = u->rows / 2;
+	index = 0;
+	while (index < u->rows)
+	{
+		print_row(u, index, wu);
+		print_sep(buf, index, m);
+		print_row(result, index, wr);
+		printf("\n");
+		index++;
+	}
+	free(wu);
+	free(wr);
 }

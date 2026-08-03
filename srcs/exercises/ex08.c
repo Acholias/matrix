@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 14:51:11 by lumugot           #+#    #+#             */
-/*   Updated: 2026/07/26 14:57:45 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/03 10:55:51 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,33 +27,25 @@ float	trace(t_matrix *matrix)
 	return (result);
 }
 
-void	ex08(void)
+void	ex08(t_cli *cli)
 {
-	printf("=== Exercise 08 - Trace ===\n\n");
+	t_matrix	*m;
+	float		result;
 
-	float r1[] = {1., 0.};
-	float r2[] = {0., 1.};
-	float *rows1[] = {r1, r2};
-	t_matrix *m = from_mat(rows1, 2, 2);
-	printf("Matrix:\n"); print_mat(m);
-	printf("trace = %g\n", trace(m));
-	free_mat(m);
-
-	float r3[] = {2., -5., 0.};
-	float r4[] = {4.,  3., 7.};
-	float r5[] = {-2., 3., 4.};
-	float *rows2[] = {r3, r4, r5};
-	m = from_mat(rows2, 3, 3);
-	printf("\nMatrix:\n"); print_mat(m);
-	printf("trace = %g\n", trace(m));
-	free_mat(m);
-
-	float r6[] = {-2., -8.,  4.};
-	float r7[] = { 1., -23., 4.};
-	float r8[] = { 0.,   6., 4.};
-	float *rows3[] = {r6, r7, r8};
-	m = from_mat(rows3, 3, 3);
-	printf("\nMatrix:\n"); print_mat(m);
-	printf("trace = %g\n", trace(m));
-	free_mat(m);
+	exercise_header(EX08_LABEL, EX08_NAME);
+	if (cli->count < 1)
+	{
+		printf(RED "Erreur" RESET " : ex08 attend 1 matrice carrée\n");
+		printf(GREY "Usage : ./matrix ex08 \"1,2;3,4\"\n" RESET);
+		return ;
+	}
+	m = cli->mats[0];
+	if (!mat_is_square(m))
+	{
+		printf(RED "Erreur" RESET " : la matrice doit être carrée\n");
+		return ;
+	}
+	result = trace(m);
+	display_mat(m);
+	printf(GREY "trace = " RESET "%g\n", result);
 }

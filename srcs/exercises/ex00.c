@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 11:36:35 by lumugot           #+#    #+#             */
-/*   Updated: 2026/08/02 23:42:21 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/03 10:56:28 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,11 +106,17 @@ void	mat_scl(t_matrix *u, float a)
 
 void	ex00(t_cli *cli)
 {
-	t_matrix    *u;
-	t_matrix    *v;
-	t_matrix    *result;
-	exercise_header(EX00_LABEL, EX00_NAME);
+	t_matrix	*u;
+	t_matrix	*v;
+	t_matrix	*result;
 
+	exercise_header(EX00_LABEL, EX00_NAME);
+	if (cli->count < 2)
+	{
+		printf(RED "Erreur" RESET " : ex00 attend 2 matrices\n");
+		printf(GREY "Usage : ./matrix ex00 \"1,2;3,4\" \"5,6;7,8\" [-s scalaire]\n" RESET);
+		return ;
+	}
 	u = cli->mats[0];
 	v = cli->mats[1];
 	if (u->rows != v->rows || u->cols != v->cols)
@@ -129,4 +135,13 @@ void	ex00(t_cli *cli)
 	mat_sub(result, v);
 	display_mat_result("-", u, v, result);
 	free_mat(result);
+
+	if (cli->has_scalar)
+	{
+		printf("\n");
+		result = from_mat(u->data, u->rows, u->cols);
+		mat_scl(result, cli->scalars[0]);
+		display_mat_scl(u, cli->scalars[0], result);
+		free_mat(result);
+	}
 }

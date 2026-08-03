@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 14:59:52 by lumugot           #+#    #+#             */
-/*   Updated: 2026/07/26 15:19:12 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/03 11:01:05 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,41 +36,20 @@ t_matrix	*transpose(t_matrix *matrix)
 	return (result);
 }
 
-void	ex09(void)
+void	ex09(t_cli *cli)
 {
-	printf("=== Exercise 09 - Transpose ===\n\n");
+	t_matrix	*result;
 
-	float r1[] = {1., 2.};
-	float r2[] = {3., 4.};
-	float *rows1[] = {r1, r2};
-	t_matrix *m = from_mat(rows1, 2, 2);
-	printf("Matrix:\n"); print_mat(m);
-	printf("transpose =\n");
-	t_matrix *result = transpose(m);
-	print_mat(result);
-	free_mat(m);
-	free_mat(result);
-
-	float r3[] = {1., 2., 3.};
-	float r4[] = {4., 5., 6.};
-	float *rows2[] = {r3, r4};
-	m = from_mat(rows2, 2, 3);
-	printf("\nMatrix:\n"); print_mat(m);
-	printf("transpose =\n");
-	result = transpose(m);
-	print_mat(result);
-	free_mat(m);
-	free_mat(result);
-
-	float r5[] = {1., 2., 3.};
-	float r6[] = {4., 5., 6.};
-	float r7[] = {7., 8., 9.};
-	float *rows3[] = {r5, r6, r7};
-	m = from_mat(rows3, 3, 3);
-	printf("\nMatrix:\n"); print_mat(m);
-	printf("transpose =\n");
-	result = transpose(m);
-	print_mat(result);
-	free_mat(m);
+	exercise_header(EX09_LABEL, EX09_NAME);
+	if (cli->count < 1)
+	{
+		printf(RED "Erreur" RESET " : ex09 attend 1 matrice\n");
+		printf(GREY "Usage : ./matrix ex09 \"1,2,3;4,5,6\"\n" RESET);
+		return ;
+	}
+	result = transpose(cli->mats[0]);
+	display_mat(cli->mats[0]);
+	printf(GREY "^T =\n" RESET);
+	display_mat(result);
 	free_mat(result);
 }
