@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 15:21:29 by lumugot           #+#    #+#             */
-/*   Updated: 2026/08/03 12:19:54 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/05 12:17:40 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	eliminate(t_matrix *matrix, size_t p_row, size_t col)
 	i = 0;
 	while (i < matrix->rows)
 	{
-		if (i != p_row && fabsf(matrix->data[i][col]) > EPSILON)
+		if (i != p_row && ft_abs(matrix->data[i][col]) > EPSILON)
 		{
 			f = matrix->data[i][col];
 			j = 0;
@@ -78,11 +78,11 @@ t_matrix	*row_echelon(t_matrix *matrix)
 		index = p_row + 1;
 		while (index < result->rows)
 		{
-			if (fabsf(result->data[index][col]) > fabsf(result->data[max_row][col]))
+			if (ft_abs(result->data[index][col]) > ft_abs(result->data[max_row][col]))
 				max_row = index;
 			index++;
 		}
-		if (fabsf(result->data[max_row][col]) < EPSILON)
+		if (ft_abs(result->data[max_row][col]) < EPSILON)
 		{
 			col++;
 			continue ;

@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 19:44:40 by lumugot           #+#    #+#             */
-/*   Updated: 2026/08/02 23:39:46 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/05 12:16:03 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,47 @@ void	exercise_header(char *label, char *name)
 		index++;
 	}
 	printf("\n\n");
+}
+
+float	ft_abs(float x)
+{
+	if (x < 0)
+		return (-x);
+	return (x);
+}
+
+float	ft_sqrt(float x)
+{
+	float	res;
+	float	prev;
+
+	if (x < 0)
+		return (-1);
+	if (x == 0)
+		return (0);
+	res = x / 2.0f;
+	prev = 0.0f;
+	while (ft_abs(res - prev) > 1e-6f)
+	{
+		prev = res;
+		res = (res + x / res) / 2.0f;
+	}
+	return (res);
+}
+
+float	ft_pow(float x, int n)
+{
+	float	result;
+	int		index;
+
+	if (n == 0)
+		return (1);
+	result = 1.0f;
+	index = 0;
+	while (index < n)
+	{
+		result *= x;
+		index++;
+	}
+	return (result);
 }

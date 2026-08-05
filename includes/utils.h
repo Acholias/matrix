@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 19:44:58 by lumugot           #+#    #+#             */
-/*   Updated: 2026/08/02 23:39:51 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/05 12:10:24 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,9 @@
 # define EX13_LABEL	GREEN "[ ex13 ]" RESET
 
 void	exercise_header(char *label, char *name);
+
+float	ft_abs(float x);
+float	ft_sqrt(float x);
+float	ft_pow(float x, int n);
 
 #endif

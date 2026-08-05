@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 19:16:11 by lumugot           #+#    #+#             */
-/*   Updated: 2026/08/03 11:06:27 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/05 12:16:50 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ float	norm_1(t_vector *vector)
 	index = 0;
 	while (index < vector->size)
 	{
-		result += fabsf(vector->data[index]);
+		result += ft_abs(vector->data[index]);
 		index++;
 	}
 	return (result);
@@ -39,7 +39,7 @@ float	norm(t_vector *vector)
 		result = fmaf(vector->data[index], vector->data[index], result);
 		index++;
 	}
-	return (sqrt(result));
+	return (ft_sqrt(result));
 }
 
 float	norm_inf(t_vector *vector)
@@ -52,7 +52,7 @@ float	norm_inf(t_vector *vector)
 	index = 0;
 	while (index < vector->size)
 	{
-		f_abs = fabsf(vector->data[index]);
+		f_abs = ft_abs(vector->data[index]);
 		if (f_abs > result)
 			result = f_abs;
 		index++;

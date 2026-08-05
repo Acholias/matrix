@@ -6,7 +6,7 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 11:19:54 by lumugot           #+#    #+#             */
-/*   Updated: 2026/08/03 12:19:52 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/05 11:53:01 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,14 @@ t_matrix	*row_echelon(t_matrix *matrix);
 void		ex10(t_cli *cli);
 
 //ex11.c
+int			find_pivot(t_matrix *matrix, size_t p_row, size_t col);
 float		determinant(t_matrix *matrix);
 void		ex11(t_cli *cli);
+
+//ex12.c
+void		ex12(t_cli *cli);
+
+//ex13.c
+void		ex13(t_cli *cli);
 
 #endif

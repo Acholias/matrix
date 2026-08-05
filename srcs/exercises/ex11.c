@@ -6,13 +6,13 @@
 /*   By: lumugot <lumugot@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 12:11:43 by lumugot           #+#    #+#             */
-/*   Updated: 2026/08/03 12:49:13 by lumugot          ###   ########.fr       */
+/*   Updated: 2026/08/05 12:17:38 by lumugot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/exercises.h"
 
-static int	find_pivot(t_matrix *matrix, size_t p_row, size_t col)
+int	find_pivot(t_matrix *matrix, size_t p_row, size_t col)
 {
 	size_t	max_row;
 	size_t	index;
@@ -21,7 +21,7 @@ static int	find_pivot(t_matrix *matrix, size_t p_row, size_t col)
 	index = p_row + 1;
 	while (index < matrix->rows)
 	{
-		if (fabsf(matrix->data[index][col]) > fabsf(matrix->data[max_row][col]))
+		if (ft_abs(matrix->data[index][col]) > ft_abs(matrix->data[max_row][col]))
 			max_row = index;
 		index++;
 	}
@@ -34,7 +34,7 @@ static int	gauss_step(t_matrix *m, size_t p_row, size_t col, int *sign, float *d
 	float	pivot;
 
 	max_row = find_pivot(m, p_row, col);
-	if (fabsf(m->data[max_row][col]) < EPSILON)
+	if (ft_abs(m->data[max_row][col]) < EPSILON)
 		return (0);
 	if (max_row != p_row)
 	{
